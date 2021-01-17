@@ -1,0 +1,74 @@
+<div class="container">
+  <div class="box">
+    <div class="square" style="--i:1;" ></div>
+    <div class="square" style="--i:2;"></div>
+    <div class="square" style="--i:3;"></div>
+    <div class="square" style="--i:4;"></div>
+  </div>
+  <!-- <div class="app">
+    <div class="color"></div>
+    <div class="color"></div>
+    <div class="color"></div>
+  </div> -->
+  <div class="board">
+
+    <div class="listView">
+      <div class="topic">List</div>
+      <div class="list">
+        <div>
+          <li *ngFor="let item of lists" (click)="getTask(item)">
+            {{ item.title }}
+          </li>
+        </div>
+        <div class="button" (click)="createNewList()">+ New List</div>
+      </div>
+    </div>
+    <div class="taskView">
+      <div class="topic">
+        <div class="taskTopic">
+          <span *ngIf="!title" >Task</span>
+          <span *ngIf="title" >{{ title }}</span>
+          <button mat-icon-button [matMenuTriggerFor]="menu">
+            <mat-icon>settings</mat-icon>
+          </button>
+          <mat-menu #menu="matMenu">
+            <button mat-menu-item (click)="updateList()">
+              <mat-icon (click)="updateList()">create</mat-icon>
+              <span>Edit List</span>
+            </button>
+            <button mat-menu-item (click)="deleteList()">
+              <mat-icon (click)="deleteList()">delete</mat-icon>
+              <span>Delete List</span>
+            </button>
+          </mat-menu>
+        </div>
+      </div>
+      <div class="task">
+        <span>
+          <h3 *ngIf="taskStatus">
+            please select your list or create your task
+          </h3>
+          <span *ngFor="let item of tasks">
+            <div
+              [ngStyle]="
+                item.completed
+                  ? { 'text-decoration': 'line-through' }
+                  : { 'text-decoration': 'none' }
+              "
+              (click)="checkTask(item)"
+            >
+              {{ item.title }}
+            </div>
+            <div class="icon">
+              <mat-icon (click)="updateTask(item)">create</mat-icon>
+              <mat-icon (click)="deleteTask(item)">delete</mat-icon>
+            </div>
+          </span>
+        </span>
+        <button id="fab" mat-fab (click)="createTask()">
+          <mat-icon>add</mat-icon>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

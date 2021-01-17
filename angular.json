@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "workboard"
+    }
+  },
+  "defaultProject": "workboard",
+  "cli": {
+    "analytics": "63e3017f-d2c7-41e7-a958-8c4724d0c323"
+  }
 }

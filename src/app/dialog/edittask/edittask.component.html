@@ -1,0 +1,13 @@
+<h2>edit task</h2>
+<form [formGroup]="form">
+  <mat-form-field appearance="legacy">
+    <mat-label>Task</mat-label>
+    <input matInput type="text" formControlName="task" />
+  </mat-form-field>
+</form>
+
+<br />
+<div class="btn">
+  <button mat-button mat-dialog-close>close</button>
+  <button mat-button id="fab" (click)="created()">create</button>
+</div>
